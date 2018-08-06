@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Thumbs Up Thumbs Down</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: "Helvetica", sans-serif;
+        }
+
+        .thumbs {
+            float: left;
+        }
+
+        ul.articles {
+            list-style: none;
+            margin: 0;
+            padding-left: 0;
+        }
+
+        ul.articles>li:first-child {
+            border-top: 1px solid black;
+        }
+
+        ul.articles>li {
+            border-bottom: 1px solid black;
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+        }
+
+        div.far {
+            display: block;
+        }
+
+        .article:before,
+        .article:after {
+            content: " ";
+            display: table;
+        }
+
+        .article:after {
+            clear: both;
+        }
+
+        .article a {
+            display: block;
+            padding: 1.3em 2.5em;
+        }
+
+        .article:nth-child(2n+1) {
+            background-color: #eee;
+        }
+
+        .article .thumbs {
+            padding: 5px 10px;
+        }
+
+        .fa-thumbs-up,
+        .fa-thumbs-down {
+            cursor: pointer;
+        }
+
+        .count {
+            padding-left: 3px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h2>Latest Articles</h2>
+    <ul class="articles">
+        <li class="article">
+            <div class="thumbs">
+                <div class="ffar fa-thumbs-up"></div>
+                <div class="count">0</div>
+                <div class="far fa-thumbs-down"></div>
+            </div>
+            <a href="#">Why Use Functional Programming?</a>
+        </li>
+        <li class="article">
+            <div class="thumbs">
+                <div class="far fa-thumbs-up"></div>
+                <div class="count">0</div>
+                <div class="far fa-thumbs-down"></div>
+            </div>
+            <a href="#">ES6, 7, 8, and Beyond</a>
+        </li>
+        <li class="article">
+            <div class="thumbs">
+                <div class="far fa-thumbs-up"></div>
+                <div class="count">0</div>
+                <div class="far fa-thumbs-down"></div>
+            </div>
+            <a href="#">Learn React in 15 Nanoseconds</a>
+        </li>
+        <li class="article">
+            <div class="thumbs">
+                <div class="far fa-thumbs-up"></div>
+                <div class="count">0</div>
+                <div class="far fa-thumbs-down"></div>
+            </div>
+            <a href="#">So You are Upgrading AngularJS to Angular?</a>
+        </li>
+    </ul>
+
+    <script src="jquery.js"></script>
+
+    <script>
+        $(".article").on("click", ".fa-thumbs-up", function() {
+            console.log("click")
+            var $li = $(this).closest(".article");
+            var $count = $li.find(".count");
+            var count = Number($count.text());
+            count++;
+            $count.text(String(count));
+        });
+        $(".article").on("click", ".fa-thumbs-down", function() {
+            var $li = $(this).closest(".article");
+            var $count = $li.find(".count");
+            var count = Number($count.text());
+            count--;
+            $count.text(String(count));
+        });
+
+    </script>
+
+</body>
+
+</html>

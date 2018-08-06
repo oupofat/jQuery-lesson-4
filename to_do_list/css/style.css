@@ -1,0 +1,18 @@
+body {
+    background-image: url(background.jpg);
+    font-family: triforce;
+    font-weight: bolder;
+    font-size: 1.5em;
+    color: #0e5135;
+}
+.header {
+    text-align: center;
+    font-size: 2em;
+}
+@font-face {
+    font-family: 'triforce';
+    src: url(triforce.ttf);
+}
+.quest_text {
+    color: #0d9263;
+}
